@@ -1,0 +1,27 @@
+.App {
+  position: relative;
+  top: 10vh;
+  text-align: center;
+  margin: 0 auto;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 800px; /* Limit max-width for large screens */
+}
+
+.youtubeFormOutput {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@media (min-width: 600px) { /* 600px is typically the width at which you switch from mobile to tablet */
+  .youtubeFormOutput {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+}

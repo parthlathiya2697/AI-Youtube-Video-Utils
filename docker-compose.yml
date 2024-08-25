@@ -1,0 +1,39 @@
+version: '3'
+services:
+  backend:
+    
+    build:
+      context: ./youtube_summariser_backend
+    
+    ports:
+      - 80:80
+    
+    volumes:
+      - .:/youtube_summariser_backend
+
+    command: uvicorn youtube_summariser_backend.youtube_summariser_server:app --host 0.0.0.0 --port 80 --reload 
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    
+    environment:
+      PYTHONUNBUFFERED: 1
+    
+
+  frontend:
+    build:
+      context: ./youtube_summariser_frontend
+    
+    depends_on:
+      - backend
+    
+    ports:
+      - 3000:3000
+
+    volumes:
+      - ./youtube_summariser_frontend:/youtube_summariser_frontend/
+
+    command: npm start 
+    
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

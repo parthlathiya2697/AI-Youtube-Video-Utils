@@ -1,0 +1,13 @@
+uvicorn
+fastapi
+
+youtube-transcript-api
+youtube_dl
+pytube
+openai-whisper
+
+sentencepiece
+transformers
+
+nltk
+scikit-learn
